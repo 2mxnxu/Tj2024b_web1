@@ -15,3 +15,4 @@ public class task1 extends HttpServlet{
 	System.out.println("안녕");	
 	}
 }
+  
