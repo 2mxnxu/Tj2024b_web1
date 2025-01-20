@@ -1,11 +1,9 @@
-package day02.task2;
+package day03.task2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import day03.task2.WaitDto;
 
 public class WaitDao {
 	private Connection conn;
@@ -25,16 +23,16 @@ public class WaitDao {
 	}
 	public static WaitDao getInstance() { return instance; }
 	
-	public boolean write( String callnum , int person ) {
+	public boolean write( WaitDto waitDto ) {
 		try {
 			String sql = "insert into waitting(callnum,person)values(?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString( 1 , callnum );
-			ps.setInt( 2 , person );
+			ps.setString( 1 , waitDto.getCallnum());
+			ps.setInt( 2 , waitDto.getPerson());
 			int count = ps.executeUpdate();
 			if( count == 1 ) return true;
-		}catch( SQLException e ) { System.out.println(e);}
-		
+		}catch( SQLException e ) { System.out.println(e); e.printStackTrace();}
+			
 		return false;
 	} 
 	public boolean delete(int num) {
@@ -43,13 +41,10 @@ public class WaitDao {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt( 1 , num );
 		int count = ps.executeUpdate();
-		if( count == 1 ) return true; return true;
+		if( count == 1 ) return true;
 	}catch (Exception e) {
 		System.out.println(e);
 	}return false;
 	}
-	public boolean write(WaitDto waitDto) {
-		// TODO Auto-generated method stub
-		return false;
-	} 
+	
 }
