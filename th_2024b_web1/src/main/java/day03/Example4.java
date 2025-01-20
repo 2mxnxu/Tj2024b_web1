@@ -24,4 +24,18 @@ public class Example4 extends HttpServlet{
 		resp.getWriter().print(result);
 		System.out.println("[HTTP로 자료를 응답 했습니다.]");
 	}
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("[HTTP * PUT 방식으로 요청이 왔어요]");
+		int result = 30;
+		resp.getWriter().print(result);
+		System.out.println("[HTTP로 자료를 응답 했습니다.]");
+	}
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("[HTTP * DELETE 방식으로 요청이 왔어요]");
+		DataDto result = new DataDto("유재석",40);
+		resp.getWriter().print(result);
+		System.out.println("[HTTP로 자료를 응답 했습니다.]");
+	}
 }

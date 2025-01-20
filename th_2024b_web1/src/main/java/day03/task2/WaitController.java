@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import day02.task2.WaitDao;
+import day03.task2.WaitDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
