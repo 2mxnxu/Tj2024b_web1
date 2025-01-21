@@ -36,8 +36,9 @@ public class VisitController extends HttpServlet{
 			// 자바객체(DTO) --> JSON 타입변환
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonResult = mapper.writeValueAsString(result);
+		System.out.println(jsonResult);
 		resp.setContentType("application/json");			
-		resp.getWriter().print(result);	
+		resp.getWriter().print(jsonResult);	
 	}
 	
 	// 3. 방문록 수정		: PUT		URL : http://localhost:8080/tj2024b_web1/dey03/visit2 
