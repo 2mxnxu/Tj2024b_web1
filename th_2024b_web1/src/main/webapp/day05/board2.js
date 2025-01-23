@@ -55,42 +55,39 @@ const boardFindAll = () => {
 }
 boardFindAll();
 
-const boardUpdate = (num) => {
-  let newTitle = document.querySelector('.newTitle').value;
-  let newContent = document.querySelector('.newContent').value;
-  let newWriter = document.querySelector('.newWriter').value;
-  let pwdInput = document.querySelector(`.pwdInput`).value;
-  
-  const option = {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: newTitle, content: newContent, writer: newWriter})
-  };
+let boardInfo = null;
 
-  fetch(`/th_2024b_web1/day05/board?num=${num}`, option)  
-	    .then(r => r.json())
-	    .then(data => {
-	      if (data == true) {
-	        alert('수정성공');
-	        boardFindAll();  
-	      } else {
-	        alert('수정실패');
-	      }
-	    })
-	    .catch(e => { console.log(e); });
+const boardUpdate = ( ) => {
+
+        let passwordCheck = prompt('게시물 비밀번호 : ')
+        if( boardInfo.pwd != passwordCheck ){
+                alert('비밀번호가 일치하지 않습니다.')
+                return;
+        }
+        location.href = `update.jsp?num=${ boardInfo.bno }`
 	};
 
-const boardDelete = (num) => {
-	let pwd = prompt('비밀번호 입력 : ')
-	const option = { method : 'DELETE'}
-		fetch(`/th_2024b_web1/day05/board?num=${num}`, option)
-			.then(r => r.json())
-			.then(data => {
-				if(data == true) {
-					alert('삭제성공');boardFindAll();
-				}else{alert('삭제실패');}
-			})
-	}
+	
+const boardDelete = ( ) => {
+        let num = new URL( location.href ).searchParams.get('num');
+        
+        let passwordCheck = prompt( '게시물 비밀번호 : ' ) 
+        if( boardInfo.pwd != passwordCheck ){ 
+                alert('비밀번호가 일치하지 않습니다.'); 
+                return;  
+        }
+        const option = { method : 'DELETE' }
+        fetch( `/th_2024b_web1/day05/board?num=${ num }` , option )
+                .then( response => response.json() )
+                .then( data => {
+                        if( data == true ){
+                                alert('삭제 성공');
+                                location.href="board.jsp";
+                        }else{ alert('삭제 실패'); }
+                })
+                .catch( e => {console.log(e); })
+} 
+
 const boardView = () => {
 	let num = new URL(location.href).searchParams.get('num');
 	const option = {method : `GET`}
@@ -102,7 +99,7 @@ const boardView = () => {
 			document.querySelector('.viewbox').innerHTML = `${data.viewnum}`;
 			document.querySelector('.titlebox').innerHTML = `${data.title}`;
 			document.querySelector('.contentbox').innerHTML = `${data.content}`;
-			
+			boardInfo = data;
 		})
 		.catch(error => {console.log(error)})
 }

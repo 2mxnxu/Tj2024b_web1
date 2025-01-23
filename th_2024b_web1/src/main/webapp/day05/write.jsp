@@ -14,7 +14,7 @@
 				내용 : <input class="contentInput"/> <br/>
 				작성자 : <input class="writertInput"/> <br/>
 				비밀번호 : <input class="pwdInput"/> <br/>
-				<button onclick="boardWrite(num)" type="button" >등록</button>
+				<button onclick="boardWrite()" type="button" >등록</button>
 			</div>
 		<jsp:include page = "/day05/footer.jsp"/>
 		<script src="board2.js"></script>

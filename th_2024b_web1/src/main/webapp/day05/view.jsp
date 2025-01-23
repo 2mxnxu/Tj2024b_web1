@@ -19,8 +19,8 @@
                 <div class="contentbox"> </div>
                 
                 <div class="etcbtns">
-                        <button onclick="boardDelete()">삭제</button>
                         <button onclick="boardUpdate()">수정</button>
+                        <button onclick="boardDelete()">삭제</button>
                 </div>
         </div>
 	<jsp:include page = "/day05/footer.jsp"/>
