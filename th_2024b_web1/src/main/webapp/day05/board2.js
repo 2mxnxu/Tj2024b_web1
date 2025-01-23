@@ -17,7 +17,7 @@ const boardWrite = () => {
 		body : JSON.stringify(dataObj)
 	}
 	fetch(`/th_2024b_web1/day05/board`, option)
-		.then(r => r.json())
+		.then(response => response.json())
 		.then(data => {
 			if(data == true) {
 							alert('등록성공');
@@ -33,7 +33,7 @@ const boardFindAll = () => {
 		let html = ''
 		const option = {method : 'GET'}
 		fetch(`/th_2024b_web1/day05/board`, option)
-			.then(r => r.json())
+			.then(response => response.json())
 			.then(data => {
 				data.forEach( board => {
 				     html += `<tr>
@@ -64,7 +64,7 @@ const boardUpdate = ( ) => {
                 alert('비밀번호가 일치하지 않습니다.')
                 return;
         }
-        location.href = `update.jsp?num=${ boardInfo.bno }`
+        location.href = `update.jsp?num=${ boardInfo.num }`
 	};
 
 	

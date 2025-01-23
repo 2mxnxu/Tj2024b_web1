@@ -85,13 +85,11 @@ public class BoardDao {
 	
 	public boolean update(BoardDto boardDto) {
 		try {
-			String sql = "update post set title = ?, content = ?, writer = ?, pwd = ? where num = ?"; 
+			String sql = "update post set title = ?, content = ? where num = ?"; 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, boardDto.getTitle());
 			ps.setString(2, boardDto.getContent());
-			ps.setString(3, boardDto.getWriter());
-			ps.setString(4, boardDto.getPwd());
-			ps.setInt(5, boardDto.getNum());
+			ps.setInt(3, boardDto.getNum());
 			int count = ps.executeUpdate();
 			if(count == 1) {
 				return true;
