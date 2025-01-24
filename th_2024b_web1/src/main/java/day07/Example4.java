@@ -30,5 +30,13 @@ public class Example4 {
 		System.out.println(map.keySet());
 			// (8) .values()	: map객체내 모든 value 반환 함수
 		System.out.println(map.values());
+			// (9) 순회
+				// 1. 일반 for 문 불가능
+				// 2. 향상된 for 문
+		for(String key : map.keySet()) {
+			System.out.println(key);
+		}map.keySet().forEach((key) -> {
+			System.out.println(map.get(key));
+		});
 	}
 }
