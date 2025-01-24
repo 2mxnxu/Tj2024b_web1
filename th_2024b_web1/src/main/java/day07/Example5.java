@@ -39,5 +39,5 @@ public class Example5 extends HttpServlet {
                resp.getWriter().print( jsonResult );
        } 
            
-   }
+   }// c end
        
