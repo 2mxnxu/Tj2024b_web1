@@ -24,8 +24,7 @@
     <!-- 메뉴 목록 -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <!-- 메뉴 항목 -->
-        <li class="nav-item"><a class="nav-link "  href="/th_2024b_web1/member/login.jsp">로그인</a></li>
-        <li class="nav-item"><a class="nav-link "  href="/th_2024b_web1/member/signup.jsp">회원가입</a></li>
+        
         <li class="nav-item"><a class="nav-link "  href="#">게시판</a></li>
         
         <li class="nav-item">
@@ -42,15 +41,16 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
+      <ul class="navbar-nav me-end mb-2 mb-lg-0 loginmenu"> 
+      
+      </ul>
+      
     </div>
   </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/th_2024b_web1/js/header.js"></script>
 </body>
 </html>

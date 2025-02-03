@@ -16,22 +16,39 @@
         <p class="col-lg-10 fs-4">다양한 서비스를 제공 합니다.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <form id="signupform" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="계정아이디">
+            <input type="text" name="mid" class="form-control" id="floatingInput" placeholder="계정아이디">
             <label for="floatingInput">계정아이디</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="계정비밀번호">
+            <input type="password" name="mpwd" class="form-control" id="floatingPassword" placeholder="계정비밀번호">
             <label for="floatingPassword">계정비밀번호</label>
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="계정비밀번호 확인">
+            <label for="floatingPassword">계정비밀번호 확인</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="mname" class="form-control" id="floatingInput" placeholder="닉네임">
+            <label for="floatingInput">닉네임</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="mphone" class="form-control" id="floatingInput" placeholder="이메일">
+            <label for="floatingInput">연락처</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="file" name="uploadFile" class="form-control" id="floatingInput" placeholder="프로필">
+            <label for="floatingInput">프로필</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="button" onclick="onSignUp()">회원가입</button>
           <hr class="my-4">
           <small class="text-body-secondary"><a class="nav-link" href="#">아이디 찾기</a></small>
-          <small class="text-body-secondary">비밀번호 찾기</small>
+          <small class="text-body-secondary"><a class="nav-link" href="#">비밀번호 찾기</a></small>
         </form>
       </div>
     </div>
   </div>
+  <script src ="/th_2024b_web1/js/member/signup.js"></script>
 </body>
 </html>

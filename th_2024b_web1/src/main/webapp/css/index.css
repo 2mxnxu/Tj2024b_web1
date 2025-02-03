@@ -12,3 +12,9 @@
 *{
 	font-family: 'CookieRun-Regular';
 }
+.header_profile{
+	width : 60px; height : 60px;
+	border-radius: 30px;
+	padding : 1px;
+	border : 1px solid #e8e8e8; 
+}
