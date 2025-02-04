@@ -19,7 +19,7 @@ const getLoginInfo = ( ) => {
 				// (3) 각 상태에 따라 로그인 메뉴 구성
 				html += `<li class="nav-item dropdown">
 				          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				          <img class="header_profile" src="/th_2024b_web1/upload/${ data.mimg }" /> ${ data.mid } 님 
+				          <img class="header_profile" src="/th_2024b_web1/upload/${ data.mimg }" /> ${ data.mid } 님/ ${ data.mpoint}POINT 
 				          </a>
 				           <ul class="dropdown-menu">
 				             <li class="nav-item"> <a class="nav-link" href="/th_2024b_web1/member/info.jsp">마이페이지</a> </li>
