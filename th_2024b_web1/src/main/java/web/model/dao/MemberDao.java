@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Statement;
+
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,24 +30,30 @@ public class MemberDao extends Dao {
 	// public static MemberDao getInstance() { return instance;} 
 	
 	// [1]. 회원가입 SQL 처리 메소드 
-	public boolean signup( MemberDto memberDto ) {
-		try {
-			// [1] SQL 작성한다.
-			String sql ="insert into member( mid , mpwd , mname , mphone , mimg, mpoint ) values( ? , ? , ? , ? , ?, 100 )";
-			// [2] DB와 연동된 곳에 SQL 기재한다. 		
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString( 1 , memberDto.getMid() );
-			ps.setString( 2 , memberDto.getMpwd() );
-			ps.setString( 3 , memberDto.getMname() );
-			ps.setString( 4 , memberDto.getMphone() );
-			ps.setString( 5 , memberDto.getMimg() );
-			// [3] 기재된 SQL를 실행하고 결과를 받는다. . 	
-			int count = ps.executeUpdate();
-			// [4] 결과에 따른 처리 및 반환를 한다.
-			if( count == 1 ) { return true; }
-		}catch( SQLException e ) { System.out.println( e ); }
-		return false;
-	} // f end 
+	public int signup( MemberDto memberDto ) {
+        try {
+                // [1] SQL 작성한다.
+                String sql ="insert into member( mid , mpwd , mname , mphone , mimg ) values( ? , ? , ? , ? , ? )";
+                // [2] DB와 연동된 곳에 SQL 기재한다.                 
+                PreparedStatement ps = conn.prepareStatement(sql , Statement.RETURN_GENERATED_KEYS ); // auto incremet 된 값을 자동으로 리턴
+                ps.setString( 1 , memberDto.getMid() );
+                ps.setString( 2 , memberDto.getMpwd() );
+                ps.setString( 3 , memberDto.getMname() );
+                ps.setString( 4 , memberDto.getMphone() );
+                ps.setString( 5 , memberDto.getMimg() );
+                // [3] 기재된 SQL를 실행하고 결과를 받는다. .         
+                int count = ps.executeUpdate();
+                // [4] 결과에 따른 처리 및 반환를 한다.
+                if( count == 1 ) { 
+                        ResultSet rs = ps.getGeneratedKeys();
+                        if( rs.next() ) {
+                                  int mno = rs.getInt( 1 );
+                                  return mno; // 회원가입 성공후 등록한 회원번호 반환 
+                        }
+                }
+        }catch( SQLException e ) { System.out.println( e ); }
+        return 0; // 회원가입 실패시 0 반환
+} 
 	
 	// [2]. 로그인 SQL 처리 메소드
 	public int login( MemberDto memberDto ) {
@@ -66,7 +74,7 @@ public class MemberDao extends Dao {
 			}
 		}catch( SQLException e ) { System.out.println( e ); }
 		return 0; // - 0 이면 로그인 실패 
-	} // f end  
+	}  
 	
 	// [3]. 내정보 보기 SQL 처리 메소드 
 	public MemberDto myInfo( int loginMno ) {
@@ -87,7 +95,7 @@ public class MemberDao extends Dao {
 			}
 		}catch(SQLException e ) { System.out.println(e);}
 		return null; // 조회된 회원정보가 없을때. null 반환한다
-	} // f end 
+	} 
 	
 	// [4]. 회원탈퇴 SQL 처리 메소드 
 	public boolean delete( int loginMno ) {
@@ -99,7 +107,7 @@ public class MemberDao extends Dao {
 			if( count == 1 ) return true;
 		}catch( SQLException e ) { System.out.println(e); }
 		return false;
-	} // f end 
+	} 
 	
 	// [5] 회원수정  SQL 처리 메소드
 	public boolean update( MemberDto memberDto ) {

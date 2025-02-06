@@ -47,3 +47,31 @@ const onUpdate = () => {
 	location.href = "./update.jsp"; // update.jsp 페이지로 이동, 하지만 수정할 회원번호가 세션에 있으므로 굳이 할 필요 없음
 	// 현재 페이지와 이동할 페이지가 같은 폴더이면 지정 파일명 작성, 만일 다른 폴더이면 프로젝트명 부터 작성
 }
+
+const getPointLog = ( ) => {
+        // fetch 옵션 
+        const option = { method : 'GET' }
+        // fetch 실행 
+        fetch( '/th_2024b_web1/point' , option )
+                .then( r => r.json() )
+                .then( data => { 
+                        if( data != null ){ // 로그인 상태이면 
+                                const tbody = document.querySelector('tbody');
+                                
+                                let html = ``;
+                                
+                                data.forEach(  (point) =>{
+                                        html += `<tr>
+                                                                <th> ${ point.pono} </th> 
+                                                                <th> ${ point.pocomment } </th>
+                                                                <th> ${ point.pocount } </th> 
+                                                                <th> ${ point.podate } </th>
+                                                        </tr>`
+                                })
+                                
+                                tbody.innerHTML = html;
+                        }
+                })
+                .catch( e => { console.log(e) } )
+} 
+getPointLog();
