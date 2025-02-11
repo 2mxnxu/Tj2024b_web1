@@ -30,7 +30,7 @@
 		<button onclick="location.href='write.jsp' " > 도서생성하기 </button>
 	</div>
 
-<script src="/th_2024b_web1/js/books/book.js" type="text/javascript" ></script>
+<script src="/bookservice/js/books/book.js" type="text/javascript" ></script>
 
 </body>
 </html>

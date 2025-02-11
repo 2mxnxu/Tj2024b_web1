@@ -7,7 +7,7 @@ const onAdd = () => {
 			method : 'POST',
 			body : signformData
 		}	
-		fetch('/th_2024b_web1/book/write', option)
+		fetch('/bookservice/book/write', option)
 			.then(r => r.json())
 			.then(data => {
 				if(data == true) {

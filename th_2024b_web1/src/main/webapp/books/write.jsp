@@ -34,6 +34,6 @@
          
         </form>
       </div>
-
+<script src="/bookservice/js/books/write.js" type="text/javascript" ></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 const findall = ( ) => {
 	const option = { method : 'GET' }
-	fetch('/th_2024b_web1/books/book' , option)
+	fetch('/bookservice/books/book' , option)
 	.then(r => r.json())
 	.then(data => {
 		const booklist = document.querySelector('.booklist > tbody')

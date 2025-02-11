@@ -45,6 +45,6 @@
          
         </form>
       </div>
-
+<script src="/bookservice/js/books/view.js" type="text/javascript" ></script>
 </body>
 </html>

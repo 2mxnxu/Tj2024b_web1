@@ -36,6 +36,6 @@
          
         </form>
       </div>
-
+<script src="/bookservice/js/books/update.js" type="text/javascript" ></script>
 </body>
 </html>
