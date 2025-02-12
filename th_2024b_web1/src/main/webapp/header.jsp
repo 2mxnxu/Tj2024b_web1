@@ -15,8 +15,8 @@
 
 	<nav class="navbar navbar-expand-lg"> <!-- bg-body-tertiary : 배경색   -->
 	  <div class="container"> <!--  container : 반응형(크기) 구역/박스 -->
-	    <a class="navbar-brand" href="/tj2024b_web1/index.jsp"> <!-- 로고 -->
-	    	<img class="header_logo" src="/tj2024b_web1/img/logo.jpg" />
+	    <a class="navbar-brand" href="/th_2024b_web1/index.jsp"> <!-- 로고 -->
+	    	<img class="header_logo" src="/th_2024b_web1/img/logo.jpg" />
 	    </a> 
 	    <!-- 반응형 토큰(버튼) : 디바이스가 작아지면 메뉴를 보여주는 버튼 활성화 -->
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
