@@ -26,7 +26,10 @@ const onLogin = () => {
 		.then(response => response.json())
 		.then(data => {
 			if(data > 0) {
-				alert('로그인 성공'); location.href="../index.jsp" // ../ 상위 폴더로 이동
+				alert('로그인 성공'); 
+				console.log(alarmSocket);
+				alarmSocket.send(`${mid}님 접속했어요`)
+				location.href="../index.jsp" // ../ 상위 폴더로 이동
 			}else {alert('로그인 실패')}
 		})
 		.catch(error => {console.log(error);})

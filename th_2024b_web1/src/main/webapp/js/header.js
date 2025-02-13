@@ -47,3 +47,22 @@ const onLogOut = ( ) => {
 		})
 		.catch( e => {console.log(e); })
 }  
+
+// [3] 알람 소켓
+const alarmSocket = new WebSocket('ws://localhost:8080/th_2024b_web1/alarmsocket');
+
+// [4] 클라이언트 웹소켓이 서비스소켓으로 부터 메시지를 받았을 때
+alarmSocket.onmessage = (msgEvent) => {
+	console.log(msgEvent.data);
+	
+	const alarmbox = document.querySelector('.alarmbox')
+	        
+	        let html = `<div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+	                                  <div class="toast-header">
+	                                    <strong class="me-auto">${ msgEvent.data }</strong>
+	                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+	                                  </div>
+	                                </div>`
+	       
+	        alarmbox.innerHTML = html
+}
