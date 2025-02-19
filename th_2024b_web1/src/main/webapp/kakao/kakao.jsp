@@ -7,6 +7,27 @@
 	<title>Kakao 지도 시작하기</title>
 </head>
 <body>
+
+	<jsp:include page="/header.jsp"></jsp:include>
+	<div id="map" style="width : 100%; height : 890px;">
+	</div>
+
+<button class="btn btn-primary 사이드바" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="display : none">
+  약국상세정보
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">약국상세정보</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+   <div class="name"></div>
+   <div class="tel"></div>
+   <div class="addr"></div>
+  </div>
+</div>
+	
 	<div id="map" style="width:100%;height:1000px;"></div>
 
 	

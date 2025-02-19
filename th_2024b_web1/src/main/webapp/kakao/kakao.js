@@ -158,10 +158,15 @@ for (var i = 0; i < positions.length; i ++) {
 				   let marker = new kakao.maps.Marker({position : new kakao.maps.LatLng(position.위도, position.경도)});
 				   
 				   kakao.maps.event.addListener(marker, 'click', function() {
-				   		console.log(marker)
+						document.querySelector('.name').innerHTML = position.약국명;	
+						document.querySelector('.tel').innerHTML = position.전화번호;
+						document.querySelector('.addr').innerHTML = position.소재지도로명주소;
+						
+						document.querySelector('.사이드바').click();
+				   		/*console.log(marker)
 				   	      // 마커 위에 인포윈도우를 표시합니다
 				   	      //infowindow.open(map, marker);  
-				   		  alert(`${position.약국명} 클릭했군요`)
+				   		  alert(`${position.약국명} 클릭했군요`)*/
 				   	});
 					return marker;
 		})
